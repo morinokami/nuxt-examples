@@ -1,1 +1,2 @@
-https://github.com/vercel/next.js/tree/canary/examples
+https://github.com/vercel/next.js/tree/master/examples
+
