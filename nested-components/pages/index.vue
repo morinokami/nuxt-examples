@@ -1,73 +1,53 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">
-        nested-components
-      </h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+  <div class="main">
+    <Post title="My first blog post">
+      <P>Hello there</P>
+      <P>This is an example of a componentized blog post</P>
+    </Post>
+
+    <hr />
+
+    <Post title="My second blog post">
+      <P>Hello there</P>
+      <P>This is another example.</P>
+      <P>Wa-hoo!</P>
+    </Post>
+
+    <hr />
+
+    <Post title="The final blog post">
+      <P>C’est fin</P>
+    </Post>
   </div>
 </template>
 
 <script>
-export default {}
+import { defineComponent } from '@nuxtjs/composition-api'
+import P from '@/components/Paragraph'
+import Post from '@/components/Post'
+
+export default defineComponent({
+  components: {
+    P,
+    Post
+  }
+})
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+<style scoped>
+.main {
+  margin: auto;
+  max-width: 420px;
+  padding: 10px;
+}
+hr {
+  width: 100px;
+  border-width: 0;
+  margin: 20px auto;
   text-align: center;
 }
-
-.title {
-  font-family:
-    'Quicksand',
-    'Source Sans Pro',
-    -apple-system,
-    BlinkMacSystemFont,
-    'Segoe UI',
-    Roboto,
-    'Helvetica Neue',
-    Arial,
-    sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+hr::before {
+  content: '***';
+  color: #ccc;
 }
 </style>
