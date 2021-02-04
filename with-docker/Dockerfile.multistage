@@ -1,0 +1,28 @@
+# Stage 1: Building the code
+FROM mhart/alpine-node AS builder
+
+WORKDIR /app
+
+COPY . .
+
+RUN yarn install --frozen-lockfile
+
+RUN yarn build
+
+# Reinstall dependencies to purge garbage files created in node_modules
+RUN yarn install --production --frozen-lockfile
+
+
+# Stage 2: And then copy over node_modules, etc from that stage to the smaller base image
+FROM mhart/alpine-node:slim as production
+
+WORKDIR /app
+
+COPY --from=builder /app/.nuxt ./.nuxt
+COPY --from=builder /app/static ./static
+COPY --from=builder /app/node_modules ./node_modules
+COPY --from=builder /app/nuxt.config.js ./nuxt.config.js
+
+EXPOSE 3000
+
+CMD ["node_modules/.bin/nuxt", "start"]

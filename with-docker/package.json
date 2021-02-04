@@ -6,7 +6,10 @@
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
-    "generate": "nuxt generate"
+    "generate": "nuxt generate",
+    "build-docker": "docker build -t nuxt-app .",
+    "build-docker-multistage": "docker build --target production -t nuxt-app -f ./Dockerfile.multistage .",
+    "run-docker": "docker run --rm -it -p 3000:3000 nuxt-app"
   },
   "dependencies": {
     "core-js": "^3.8.3",
