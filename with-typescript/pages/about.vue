@@ -1,9 +1,10 @@
 <template>
   <div>
-    <h1>Hello Nuxt.js 👋</h1>
+    <h1>About</h1>
+    <p>This is the about page</p>
     <p>
-      <NuxtLink to="/about">
-        About
+      <NuxtLink to="/">
+        Go home
       </NuxtLink>
     </p>
   </div>
@@ -14,7 +15,7 @@ import { defineComponent } from '@nuxtjs/composition-api'
 
 export default defineComponent({
   head: {
-    title: 'Home | Nuxt.js + TypeScript Example',
+    title: 'About | Nuxt.js + TypeScript Example',
   }
 })
 </script>

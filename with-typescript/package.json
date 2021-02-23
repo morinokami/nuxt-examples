@@ -10,7 +10,9 @@
   },
   "dependencies": {
     "@nuxt/typescript-runtime": "^2.0.1",
+    "@nuxtjs/composition-api": "^0.20.2",
     "core-js": "^3.8.3",
+    "express": "^4.17.1",
     "nuxt": "^2.14.12"
   },
   "devDependencies": {
